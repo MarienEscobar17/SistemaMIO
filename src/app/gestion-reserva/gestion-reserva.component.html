@@ -1,0 +1,75 @@
+<div>
+    <h1>Gestión de reserva</h1>
+    <p>
+      
+      <mat-form-field appearance="outline">
+        <mat-label>Nombre del usuario</mat-label>
+        <input matInput [(ngModel)]="reg.nombre" >
+        <mat-icon matSuffix>person</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" style="padding-left: 10px">
+        <mat-label>Cedula</mat-label>
+        <input matInput [(ngModel)]="reg.cedula" >
+        <mat-icon matSuffix>chrome_reader_mode</mat-icon>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Edad</mat-label>
+        <input matInput [(ngModel)]="reg.edad" >
+        <mat-icon matSuffix>person</mat-icon>
+        
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" style="padding-left: 10px">
+        <mat-label>Hora de ingreso</mat-label>
+        <input matInput [(ngModel)]="reg.hora_ingreso" >
+        <mat-icon matSuffix>access_time</mat-icon>
+        
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Cantidad de integrantes</mat-label>
+        <input matInput [(ngModel)]="reg.cantidad_integrantes" >
+        <mat-icon matSuffix>supervisor_account</mat-icon>
+        
+      </mat-form-field>
+    <mat-form-field appearance="outline" style="padding-left: 10px">
+      <mat-label>Precio pagado</mat-label>
+      <input matInput [(ngModel)]="reg.precio_pagado" >
+      <mat-icon matSuffix>attach_money</mat-icon>
+    </mat-form-field>
+    <p>
+    <button mat-raised-button color="primary" (click)="CreateRecord()">Guardar</button>
+  
+    <button mat-raised-button color="primary" style="margin-left: 10px" (click)="UpdateRecord(reg)">Modificar</button>
+    </p>
+    <p>
+  
+    
+      <table  *ngIf="hayRegistros();" class="mat-elevation-z8">
+        <tr>
+          <td>Codigo</td><td>Nombre</td><td>Cedula</td>
+          <td>Edad</td><td>Hora_ingreso</td><td>Cantidad</td><td>Precio</td>
+          <td>Borrar</td><td>Seleccionar</td>
+          
+        </tr>
+        <mat-divider></mat-divider>
+        <tr *ngFor="let item of registro">
+          <td>{{item.codigo}}</td>
+          <td>{{item.nombre}}</td>
+          <td>{{item.cedula}}</td>
+          <td>{{item.edad}}</td>
+          <td>{{item.hora_ingreso}}</td>
+          <td>{{item.cantidad_integrantes}}</td>
+          <td>{{item.precio_pagado}}</td>
+    
+          <td><button mat-raised-button color="primary" (click)="RemoveRecord(item.codigo)">Borrar</button></td>
+          <td><button mat-raised-button color="primary" (click)="seleccionar(item.codigo)">Seleccionar</button></td>        
+          <mat-divider></mat-divider>
+        </tr>
+      </table>
+     
+  </div>

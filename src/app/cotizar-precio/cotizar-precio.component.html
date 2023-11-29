@@ -1,0 +1,63 @@
+<html lang="es">
+<head>
+    <title>Punto 1</title>
+</head>
+<body>
+    <H1><font face="Helvetica">Comprar pasajes MIO.</font></H1>
+  
+        <mat-form-field appearance="outline">
+            <mat-label>Edad</mat-label>
+            <input matInput placeholder="Ingresar" [formControl]="edad">
+            <mat-icon matSuffix>person</mat-icon>
+        </mat-form-field>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+    <mat-form-field appearance="outline" style="padding-left: 10px">
+        <mat-label>¿Estudiante?</mat-label>
+        <input matInput placeholder="Ingresar" list="listaOpciones" [formControl]="estudiante">
+        <datalist id="listaOpciones">
+                <option label="SI" value="SI">
+                <option label="NO" value="NO">
+            </datalist> 
+            <mat-icon matSuffix>person</mat-icon>
+        </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline">
+        <mat-label>¿Grupo Familiar?</mat-label>
+            <input matInput placeholder="Ingresar" list="listaOpciones" [formControl]="grupo">
+            <datalist id="listaOpciones">
+                    <option label="SI" value="SI">
+                    <option label="NO" value="NO">
+                </datalist> 
+                <mat-icon matSuffix>supervised_user_circle</mat-icon>
+        </mat-form-field>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+    <mat-form-field appearance="outline" style="padding-left: 10px">
+        <mat-label>Cantidad</mat-label>
+            <input matInput placeholder="Ingresar" [formControl]="familias">
+            <mat-icon matSuffix></mat-icon>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline">
+            <mat-label>Precio Tiquete</mat-label>
+            <input matInput placeholder="Ingresar" [formControl]="valor">
+            <mat-icon matSuffix>attach_money</mat-icon>
+        </mat-form-field>
+    
+
+    <br>
+    <br>
+    <br>
+    
+    <mat-label>
+         <H3><font face="Helvetica">Su total a pagar es : $ {{precio}} El decuento es de {{off}}</font></H3>
+    </mat-label>
+    <!--Se mete la imagen en el assets para evitar el error 404  
+    <img src="../assets/MIO.jpg"> -->
+    <button mat-raised-button color="primary" (click)='ngOnInit()'>Calcular</button>
+    <a mat-raised-button color="primary" style="margin-left: 10px" [routerLink]="['/reserva' ,precio, cantidad, anos ]">Reserva <i class="material-icons">room_service</i> </a>
+    
+</body>
+
+</html>
